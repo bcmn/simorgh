@@ -1,4 +1,4 @@
-import { C_POSTBOX } from '@bbc/psammead-styles/colours';
+import { C_POSTBOX, C_GHOST, C_EBON,  C_LUNAR, C_WHITE, C_SHADOW } from '@bbc/psammead-styles/colours';
 import { news as brandSVG } from '@bbc/psammead-assets/svgs';
 import { latin } from '@bbc/gel-foundations/scripts';
 import * as fonts from '@bbc/psammead-styles/fonts';
@@ -167,6 +167,24 @@ const news = {
     fonts.F_REITH_SANS_BOLD,
     fonts.F_REITH_SANS_BOLD_ITALIC,
   ],
+  themes: {
+    brand: {
+      light: C_POSTBOX,
+      dark: "#EB0000",
+    },
+    background: {
+      light: C_GHOST,
+      dark: C_EBON,
+    },
+    textPrimary: {
+      light: C_SHADOW,
+      dark: C_LUNAR,
+    },
+    textLink: {
+      light: C_EBON,
+      dark: C_WHITE,
+    }
+  }
 };
 
 export default news;

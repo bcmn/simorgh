@@ -25,7 +25,7 @@ export const Grid = styled.div`
 
 export const GhostGrid = styled.div`
   ${layoutGridWrapper};
-  background: ${C_GHOST};
+  background: var(--background);
   padding-bottom: ${GEL_SPACING_QUAD};
 `;
 

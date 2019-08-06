@@ -20,12 +20,32 @@ const GlobalStyleComponent = createGlobalStyle`
       box-sizing: inherit;
     }
 
+    /* Color theme */
+    :root {
+      color-scheme: light dark;
+      ${({ theme }) => `
+        --brand: ${theme.brand.light};
+        --background: ${theme.background.light};
+        --textPrimary: ${theme.textPrimary.light};
+        --textLink: ${theme.textLink.light};
+
+        @media (prefers-color-scheme: dark) {
+          --brand: ${theme.brand.dark};
+          --background: ${theme.background.dark};
+          --textPrimary: ${theme.textPrimary.dark};
+          --textLink: ${theme.textLink.dark};
+        }
+      `}
+
     ${({ fonts }) => fonts && createFontStyles(fonts)}
   `;
 
 const GlobalStyle = ({ fonts }) => {
   const styleFonts = useContext(ServiceContext).fonts;
-  return <GlobalStyleComponent fonts={fonts || styleFonts} />;
+  const serviceThemes = useContext(ServiceContext).themes;
+  return (
+    <GlobalStyleComponent fonts={fonts || styleFonts} theme={serviceThemes} />
+  );
 };
 
 GlobalStyle.propTypes = {
